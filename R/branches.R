@@ -49,7 +49,7 @@ gl_get_branch <- function(project, branch, ...) {
 #' @param ref ref name of origin for newly created branch. Default to 'main'.
 #' @rdname branches
 #' @export
-gl_create_branch <- function(project, branch, ref = get_main(), ...) {
+gl_create_branch <- function(project = basename(usesthis::proj_get()), branch, ref = get_main(), ...) {
   gl_proj_req(project, c("repository", "branches"), ...) %>%
     gitlab(
       verb = httr::POST,
